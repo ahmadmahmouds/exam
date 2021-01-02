@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-space-bettwen" >
+            <div class="col"> <a href="/show_travel_form" class="btn btn-primary mt-3">Home</a></div>
+            <div class="col"><a href="/logout" class="btn btn-primary mt-3">Logout</a></div>
+        </div>
+        <div class="row">
+            <div class="col-6 mt-2">
+                <div class="card mt-2">
+                    <div class="card-body">
+                    <p><strong> destination: </strong>  {{paln.destination}}</p> 
+                    <p><strong>planned by: </strong>  {{paln.user.first_name}}</p>
+                    <p><strong>Description: </strong>   {{paln.description}}</p>
+                    <p><strong>Travel Date From: </strong>   {{paln.start_date}}</p>
+                    <p><strong>Travel Date To: </strong>   {{paln.end_date}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-2"></div>
+
+
+
+            <div class="col-4 mt-2">
+                <h4>User Who Join</h4>
+                <div class="card mt-2">
+                    <div class="card-body">
+                    {%  for userjoied in paln.who_join.all%}
+                        {%if plan.user.id != userId %}
+                    <p><strong> Name: </strong>  {{userjoied.first_name}}  {{userjoied.last_name}}</p> 
+                        {%endif%}
+                    {%endfor%}
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
